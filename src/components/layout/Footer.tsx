@@ -1,11 +1,11 @@
 "use client";
 
-import { ArrowUp, Snowflake } from "lucide-react";
+import { Snowflake } from "lucide-react";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
-import { EASE_OUT_EXPO, getScrollBehavior } from "@/lib/motion";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
-import { GitHubIcon } from "@/components/Icons";
+import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -60,18 +60,6 @@ export function Footer({ snow, onToggleSnow }: FooterProps) {
               </Button>
             </TooltipTrigger>
             <TooltipContent>{snow ? "snow off" : "snow on"}</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                size="icon"
-                onClick={() => window.scrollTo({ top: 0, behavior: getScrollBehavior() })}
-                aria-label="Back to top"
-              >
-                <ArrowUp aria-hidden="true" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>top</TooltipContent>
           </Tooltip>
         </div>
       </div>

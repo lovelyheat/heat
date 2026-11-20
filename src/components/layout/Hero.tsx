@@ -5,7 +5,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
 import { EASE_OUT_EXPO } from "@/lib/motion";
-import { getDiscordAvatarUrl, getDiscordDecorationUrl, type LanyardData } from "@/lib/lanyard";
+import { getDiscordAvatarUrl, getDiscordDecorationUrl } from "@/lib/lanyard";
+import type { LanyardData } from "@/types";
 
 export function Hero({ lanyard }: { lanyard: LanyardData | null }) {
   const user = lanyard?.discord_user;

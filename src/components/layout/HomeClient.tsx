@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import { MotionConfig } from "framer-motion";
-import { Hero } from "@/components/Hero";
+import { Hero } from "./Hero";
+import { Footer } from "./Footer";
+import { Snowfall } from "@/components/effects/Snowfall";
 import {
   DiscordCard,
   LastfmCard,
   LetterboxdCard,
   XCard,
-} from "@/components/SocialCards";
-import { Footer } from "@/components/Footer";
-import { Snowfall } from "@/components/Snowfall";
+} from "@/components/cards";
+import { useLanyard } from "@/hooks";
 import { siteConfig } from "@/config/site";
-import { useLanyard } from "@/lib/lanyard";
 
 export function HomeClient() {
   const [snow, setSnow] = useState(true);

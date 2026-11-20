@@ -1,24 +1,10 @@
-export interface FilmEntry {
-  title: string;
-  year: string;
-  rating: string;
-  director?: string;
-  href?: string;
-  poster?: string;
-}
+import type { FilmEntry, TrackEntry } from "@/types";
 
-export interface TrackEntry {
-  title: string;
-  artist: string;
-  album: string;
-  duration: string;
-  isPlaying?: boolean;
-  url?: string;
-  image?: string;
-}
+export type { FilmEntry, TrackEntry };
 
 export const siteConfig = {
   name: "heat",
+  url: "https://heat.rest",
   discordUserId: "511514178788392990",
   socials: {
     x: {
