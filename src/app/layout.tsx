@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import { buildDiscordComponentEmbedJson, getLanyardAvatarProxyUrl } from "@/lib/link-preview";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -17,17 +18,25 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const title = siteConfig.name;
-const description =
-  "tagline" in siteConfig && typeof siteConfig.tagline === "string" && siteConfig.tagline
-    ? siteConfig.tagline
-    : undefined;
+const avatarUrl = getLanyardAvatarProxyUrl(siteConfig.discordUserId);
+const ogTitle = `${siteConfig.name} (@${siteConfig.socials.discord.handle})`;
+const discordEmbedJson = buildDiscordComponentEmbedJson();
 
 export const metadata: Metadata = {
-  title,
-  ...(description ? { description } : {}),
-  openGraph: { title, ...(description ? { description } : {}), type: "website" },
-  twitter: { card: "summary", title, ...(description ? { description } : {}) },
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.name,
+  openGraph: {
+    siteName: new URL(siteConfig.url).host,
+    title: ogTitle,
+    url: siteConfig.url,
+    type: "website",
+    images: [{ url: avatarUrl, width: 1024, height: 1024 }],
+  },
+  twitter: {
+    card: "summary",
+    title: ogTitle,
+    images: [avatarUrl],
+  },
 };
 
 export const viewport: Viewport = {
@@ -42,6 +51,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable} dark`}>
+      <head>
+        <script
+          id="discord:component-embed"
+          type="application/vnd.discord.component-embed+json"
+          dangerouslySetInnerHTML={{ __html: discordEmbedJson }}
+        />
+      </head>
       <body className="bg-background font-sans text-foreground antialiased selection:bg-white/20 selection:text-white">
         <TooltipProvider>{children}</TooltipProvider>
       </body>
