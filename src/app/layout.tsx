@@ -25,6 +25,9 @@ const discordEmbedJson = buildDiscordComponentEmbedJson();
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: siteConfig.name,
+  icons: {
+    icon: { url: "/avatar.svg", type: "image/svg+xml" },
+  },
   openGraph: {
     siteName: new URL(siteConfig.url).host,
     title: ogTitle,
