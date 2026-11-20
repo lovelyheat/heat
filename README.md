@@ -1,74 +1,40 @@
-# heat
+<div align="center">
+  <br />
+  <img src="https://api.lanyard.rest/511514178788392990.png" width="84" height="84" alt="heat" />
+  <h1>heat</h1>
+  <p>Personal site for <a href="https://heat.rest">heat.rest</a> — live Discord presence, recent Last.fm plays, Letterboxd logs, and X profile.</p>
+  <p>
+    <a href="https://x.com/rtnangl">X</a> ·
+    <a href="https://discord.com/users/511514178788392990">Discord</a> ·
+    <a href="https://www.last.fm/user/lovelyheat">Last.fm</a> ·
+    <a href="https://letterboxd.com/lovelyheat">Letterboxd</a> ·
+    <a href="https://github.com/lovelyheat">GitHub</a>
+  </p>
+</div>
 
-Personal website featuring live Discord presence, Last.fm plays, Letterboxd recent films, and an X profile card.
+<br />
 
-## Cards & Integrations
+### What's on it
 
-| Card | Source | Details |
-| --- | --- | --- |
-| **Discord** | Lanyard WebSocket | Live presence, avatar, activity, and custom status |
-| **Last.fm** | Last.fm API | Currently playing track or recent scrobble with cover art; fallback rotation |
-| **Letterboxd** | RSS feed parser | Last 4 logged diary entries, star ratings, and posters |
-| **X (Twitter)** | Static / local | Profile card with local avatar and banner assets |
-| **Snowfall** | Canvas overlay | Toggleable winter snow particle effect |
+| | |
+| :--- | :--- |
+| **Hero & Favicon** | Pulls live Discord avatar and animated decoration via Lanyard, and mirrors the avatar into a dynamic circular SVG favicon. |
+| **Discord** | Real-time WebSocket presence — native status glyphs, custom status, Spotify progress bar, multi-activity switcher, and game icons. |
+| **Last.fm** | Live now-playing and recent plays with album art, ambient cover tint, and play count. |
+| **Letterboxd** | Four-poster shelf synced from Letterboxd RSS with years, ratings, and direct film links. |
+| **X** | Profile card with banner, avatar, display name, and handle. |
+| **Extras** | Discord component-embed link preview for `heat.rest` and a toggleable canvas snowfall layer. |
 
-## Stack
+<br />
 
-- **Framework:** Next.js 15 (App Router, Turbopack)
-- **Library:** React 19
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Components:** Radix UI / shadcn/ui
-- **Animation:** Framer Motion
+### Stack
 
-## Setup
-
-### 1. Install dependencies
-
-```bash
-pnpm install
-```
-
-### 2. Configure environment variables
-
-Copy `.env.example` to `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `LASTFM_API_KEY` | Optional | API key from Last.fm to fetch live scrobbles and now-playing tracks |
-| `LASTFM_USERNAME` | Optional | Last.fm handle (defaults to `siteConfig.socials.lastfm.handle`) |
-| `LETTERBOXD_USERNAME` | Optional | Letterboxd handle (defaults to `siteConfig.socials.letterboxd.handle`) |
-
-If `LASTFM_API_KEY` is not provided, the Last.fm card falls back to the static tracks defined in `src/config/site.ts`.
-
-### 3. Run development server
-
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
-### 4. Build for production
-
-```bash
-pnpm build
-pnpm start
-```
-
-### 5. Docker
-
-```bash
-docker compose up -d --build
-```
-
-Runs on port `3000` by default (override with `PORT=3001 docker compose up -d --build`) and automatically loads `.env` if present.
-
-## Customization
-
-- **Site metadata & profile links:** Edit `src/config/site.ts` to update your Discord user ID, handles, fallback tracks, and recent films.
-- **X card images:** Replace `public/x/avatar.jpg` and `public/x/banner.jpg` with your own images.
+<p>
+  <img src="https://img.shields.io/badge/Next.js_15-0a0a0b?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js 15" />
+  <img src="https://img.shields.io/badge/React_19-0a0a0b?style=for-the-badge&logo=react&logoColor=white" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-0a0a0b?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS_v4-0a0a0b?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS v4" />
+  <img src="https://img.shields.io/badge/shadcn%2Fui-0a0a0b?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui" />
+  <img src="https://img.shields.io/badge/Framer_Motion-0a0a0b?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/Docker-0a0a0b?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+</p>
