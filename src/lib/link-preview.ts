@@ -7,10 +7,8 @@ const ACCENT_COLOR = 0x0a0a0b;
 type SocialKey = keyof typeof siteConfig.socials;
 
 const PREVIEW_BUTTONS: readonly { key: SocialKey; label: string }[] = [
-  { key: "discord", label: "Discord" },
+  { key: "discord", label: "Profile" },
   { key: "x", label: "X" },
-  { key: "lastfm", label: "Last.fm" },
-  { key: "letterboxd", label: "Letterboxd" },
   { key: "github", label: "GitHub" },
 ];
 
