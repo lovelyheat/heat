@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: dark;
+  --radius: 1.625rem;
+  --background: #000000;
+  --foreground: #f4f4f5;
+  --card: #0a0a0b;
+  --card-foreground: #f4f4f5;
+  --popover: #0c0c0d;
+  --popover-foreground: #f4f4f5;
+  --primary: #fafafa;
+  --primary-foreground: #000000;
+  --secondary: #141417;
+  --secondary-foreground: #e4e4e7;
+  --muted: #141417;
+  --muted-foreground: #71717a;
+  --accent: rgba(255, 255, 255, 0.06);
+  --accent-foreground: #ffffff;
+  --destructive: #e11d48;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: rgba(255, 255, 255, 0.25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 14px);
+  --radius-md: calc(var(--radius) - 10px);
+  --radius-lg: calc(var(--radius) - 4px);
+  --radius-xl: var(--radius);
+
+  --color-ember: #e11d48;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  background-color: var(--background);
+  color: var(--foreground);
+  scrollbar-gutter: stable;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+@keyframes eq-pulse {
+  0%, 100% {
+    transform: scaleY(0.28);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes spin-cw {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-eq-1 {
+  animation: eq-pulse 1.05s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.animate-eq-2 {
+  animation: eq-pulse 0.82s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.18s;
+}
+.animate-eq-3 {
+  animation: eq-pulse 1.18s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.34s;
+}
+.animate-eq-4 {
+  animation: eq-pulse 0.92s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.1s;
+}
+
+.animate-disc-spin {
+  animation: spin-cw 5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-eq-1,
+  .animate-eq-2,
+  .animate-eq-3,
+  .animate-eq-4,
+  .animate-disc-spin {
+    animation: none;
+  }
+}
